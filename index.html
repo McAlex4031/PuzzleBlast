@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Blast - Match 3 Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- Menu Principal -->
+    <div id="mainMenu" class="screen active">
+        <div class="menu-container">
+            <h1 class="game-title">Puzzle Blast</h1>
+            
+            <div class="menu-content">
+                <div class="coins-display">
+                    <span class="coin-icon">💰</span>
+                    <span class="coin-amount" id="menuCoins">0</span>
+                </div>
+
+                <button class="play-button" id="playButton">
+                    <span class="button-text" id="playButtonText">Jouer Niveau 1</span>
+                </button>
+
+                <button class="shop-button" id="shopButton" title="Boutique">
+                    🛍️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran de Jeu -->
+    <div id="gameScreen" class="screen">
+        <div class="game-container">
+            <!-- HUD Supérieur -->
+            <div class="game-hud">
+                <div class="hud-item">
+                    <span class="hud-label">💰 Pièces</span>
+                    <span class="hud-value" id="hudCoins">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">🎯 Objectif</span>
+                    <span class="hud-value" id="hudObjective">-</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">🔁 Coups</span>
+                    <span class="hud-value" id="hudMoves">0</span>
+                </div>
+            </div>
+
+            <!-- Grille de Jeu -->
+            <div class="game-board">
+                <div id="gameGrid" class="grid"></div>
+            </div>
+
+            <!-- Boutons de Contrôle -->
+            <div class="game-controls">
+                <button id="undoButton" class="control-button" title="Annuler">↶</button>
+                <button id="homeButton" class="control-button" title="Menu">🏠</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Boutique -->
+    <div id="shopPanel" class="shop-panel">
+        <div class="shop-content">
+            <div class="shop-header">
+                <h2>Boutique</h2>
+                <button class="close-button" id="closeShop">✕</button>
+            </div>
+            
+            <div class="shop-items">
+                <div class="shop-item">
+                    <div class="item-icon">🔨</div>
+                    <div class="item-info">
+                        <h3>Casse-Case</h3>
+                        <p>Détruit une case</p>
+                        <span class="item-price">500 💰</span>
+                    </div>
+                    <div class="item-stock" id="hammerStock">3</div>
+                </div>
+
+                <div class="shop-item">
+                    <div class="item-icon">🧤</div>
+                    <div class="item-info">
+                        <h3>Swap Libre</h3>
+                        <p>Échange libre</p>
+                        <span class="item-price">500 💰</span>
+                    </div>
+                    <div class="item-stock" id="swapStock">3</div>
+                </div>
+
+                <div class="shop-item">
+                    <div class="item-icon">🧨</div>
+                    <div class="item-info">
+                        <h3>Explosion 3x3</h3>
+                        <p>Zone 3x3</p>
+                        <span class="item-price">500 💰</span>
+                    </div>
+                    <div class="item-stock" id="bombStock">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran Fin de Niveau -->
+    <div id="levelEndScreen" class="screen level-end-screen">
+        <div class="level-end-container">
+            <div class="level-end-content">
+                <h2 id="levelEndTitle">Niveau Terminé!</h2>
+                <div class="level-end-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Pièces Gagnées</span>
+                        <span class="stat-value" id="earnedCoins">50</span>
+                    </div>
+                </div>
+                <button id="nextLevelButton" class="play-button">
+                    Niveau Suivant →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran Échec -->
+    <div id="failScreen" class="screen level-end-screen">
+        <div class="level-end-container">
+            <div class="level-end-content fail">
+                <h2>Niveau Échoué</h2>
+                <p class="fail-message">Plus de coups disponibles</p>
+                <button id="retryButton" class="play-button">
+                    Réessayer →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="levels.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
